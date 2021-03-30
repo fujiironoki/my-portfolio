@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>習慣化アプリ</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://kit.fontawesome.com/cf101f72fc.js" crossorigin="anonymous">
+    </script>
+  </head>
+  <body>
+    <div class="header">
+        <div class="header-logo">習慣化アプリ</div>
+        <div class="header-list">
+        </div>
+    </div>
+    <div id="container">
+     <ul></ul>
+     <input id = "new-todo" type="text" placeholder="習慣化したいTodoを入力">
+     <button id = "add-button">add</button>
+     <p>
+      獲得ポイント:
+      <span id="output"></span>
+      です。
+    </p>
+    <script src="main.js"></script>
+     <script>
+      const button =document.getElementById('add-button');
+      button.addEventListener('click', () => {
+      const input = document.getElementById('new-todo');
+      const li = document.createElement('li');
+      li.innerText = input.value;
+
+      const doneButton = document.createElement('button');
+      doneButton.innerText = 'done';
+      li.appendChild(doneButton);
+      doneButton.addEventListener('click', () => {
+        const li = doneButton.closest('li');
+        li.classList.add('done');
+        
+      }); 
+      const ul = document.querySelector('ul');
+      ul.appendChild(li);
+      });
+     </script>
+    </div>
+    <span class="fas fa-gifts"></span>
+    <h3 class="section-title">達成報酬</h3>
+      <textarea placeholder="例）210ポイント：100円GET"></textarea>
+  </body>
+</html>
